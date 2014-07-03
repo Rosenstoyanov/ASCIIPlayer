@@ -4,18 +4,17 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
 
-public class ASCIIParser {
+public class PlayerUtils {
 	BufferedImage bufferedImage;
 
-	public ASCIIParser(Path path) throws IOException {
+	public PlayerUtils(Path path) throws IOException {
 		bufferedImage = ImageIO.read(path.toFile());
 	}
 
-	public void parse() {
+	public void write() {
 		int pixel = 0;
 		float blocks = 144f;
 		int blockLength = (int) (Math.ceil(bufferedImage.getWidth() / blocks));
@@ -70,16 +69,5 @@ public class ASCIIParser {
 			System.out.println(System.lineSeparator());
 
 		}
-	}
-
-	public static void main(String[] args) throws IOException {
-
-		// ASCIIParser img = new ASCIIParser(Paths.get(args[0]));
-		// System.out.println(echo $COLUM);
-		// ASCIIParser img = new ASCIIParser(
-		// Paths.get("/home/rosen/Downloads/Car3.jpg"));
-		ASCIIParser img = new ASCIIParser(
-				Paths.get("/home/rosen/Downloads/Car3.jpg"));
-		img.parse();
 	}
 }
