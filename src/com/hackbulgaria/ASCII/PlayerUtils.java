@@ -2,19 +2,15 @@ package com.hackbulgaria.ASCII;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.nio.file.Path;
-
-import javax.imageio.ImageIO;
 
 public class PlayerUtils {
-	BufferedImage bufferedImage;
+	// BufferedImage bufferedImage;
+	//
+	// public PlayerUtils(Path path) throws IOException {
+	// bufferedImage = ImageIO.read(path.toFile());
+	// }
 
-	public PlayerUtils(Path path) throws IOException {
-		bufferedImage = ImageIO.read(path.toFile());
-	}
-
-	public void write() {
+	public static void write(BufferedImage bufferedImage) {
 		int pixel = 0;
 		float blocks = 144f;
 		int blockLength = (int) (Math.ceil(bufferedImage.getWidth() / blocks));
