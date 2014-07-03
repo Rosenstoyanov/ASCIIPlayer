@@ -16,12 +16,13 @@ public class ASCIIParser {
 	}
 
 	public void parse() {
-		double pixel = 0;
-		double blockLength = (bufferedImage.getHeight() / 144) + 1;
+		int pixel = 0;
+		float blocks = 144f;
+		int blockLength = (int) (Math.ceil(bufferedImage.getWidth() / blocks));
 		for (int t = 0; t < bufferedImage.getHeight(); t += blockLength) {
 			for (int r = 0; r < bufferedImage.getWidth(); r += blockLength) {
-				for (int y = 0; y < blockLength; y++) {
-					for (int x = 0; x < blockLength; x++) {
+				for (int y = t; y < blockLength + t; y++) {
+					for (int x = r; x < blockLength + r; x++) {
 						Color color = new Color(bufferedImage.getRGB(x, y));
 						pixel += (color.getBlue() + color.getRed() + color
 								.getGreen());
